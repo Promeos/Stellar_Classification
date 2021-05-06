@@ -1,0 +1,10 @@
+.ipynb_checkpoints/
+__pycache__
+.DS_Store
+.vscode/
+*.csv
+*.json
+sweeper_routes/
+*.mov
+news.ipynb
+env.py
