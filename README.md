@@ -1,5 +1,4 @@
-# Star Light, Star Bright
-#### Classifying Stars
+![star-header](./visuals/stars_header.png)
 
 ## Background
 
