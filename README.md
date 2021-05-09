@@ -9,22 +9,28 @@
 **`stars.csv`**
 | Feature Name                                  | Description                                                                   |
 | :-------------------------------------------- | :---------------------------------------------------------------------------- |
-| Temperature                                   | Temperature in degrees Kelvin                                                 |
-| Relative Luminosity                           | Luminosity $\div$ Average Luminosity of the Sun                               |
-| Relative Radius                               | Radius $\div$ Average Radius of the Sun                                       |
-| A_M                                           | Absolute Magnitude                                                            |
+| Temperature                                   | Temperature in Kelvin                                                         |
+| Relative Luminosity                           | Relative Luminosity is calculated as: Luminosity divided by Average Luminosity of the Sun                           |
+| Relative Radius                               | Relative Radius is calculated as: Radius divided by Average Radius of the Sun                                   |
+| Absolute Magnitude                            | Absolute Magnitude                                                            |
 | Color                                         | General Color of Spectrum                                                     |
 | Spectral Class                                | O,B,A,F,G,K,M / SMASS - https://en.wikipedia.org/wiki/Asteroid_spectral_types |
 
 
+#### Kelvin scale 
+|                | From kelvins               | To kelvins                  |
+| Celsius        | 	[°C] = [K] − 273.15 	  | [K] = [°C] + 273.15         |
+| Fahrenheit     | 	[°F] = [K] × 9⁄5 − 459.67 |	[K] = ([°F] + 459.67) × 5⁄9 |
+
+ On the Kelvin scale, pure water freezes at 273.15 K, and it boils at 373.15 K.
+ [source](https://en.wikipedia.org/wiki/Kelvin)
+
+
+
+
 | Spectral Class                                | Spectral Features                                                             |
 | :-------------------------------------------- | :---------------------------------------------------------------------------- |
-| A                                             | Very steep red slope shortward of 0.75 μm; moderately deep absorption feature longward of 0.75 μm. |
-| B, F	                                        | Linear, generally featureless spectra. Differences in UV absorption features and presence/absence of narrow absorption feature near 0.7 μm. |
-| G                                             | Linear, generally featureless spectra. Differences in UV absorption features and presence/absence of narrow absorption feature near 0.7 μm. |
-| K                                             | Moderately steep red slope shortward of 0.75 μm; smoothly angled maximum and flat to blueish longward of 0.75 μm, with little or no curvature. |
-| M                                             | Generally featureless spectrum with reddish slope; differences in subtle absorption features and/or spectral curvature and/or peak relative reflectance. |
-| O                                            	| Peculiar trend, known so far for very few asteroids.                              |
+|||
 
 | Target Name: __Type__ | Description             |
 | :-------------------- | :---------------------- |
