@@ -10,11 +10,11 @@
 | Feature Name                                  | Description                                                                   |
 | :-------------------------------------------- | :---------------------------------------------------------------------------- |
 | Temperature                                   | Temperature in Kelvin                                                         |
-| Relative Luminosity                           | Relative Luminosity is calculated as: Luminosity divided by Average Luminosity of the Sun                           |
-| Relative Radius                               | Relative Radius is calculated as: Radius divided by Average Radius of the Sun                                   |
-| Absolute Magnitude                            | Absolute Magnitude                                                            |
+| Relative Luminosity                           | The amount of light emitted by an object in a unit of time. Relative Luminosity is calculated as: Luminosity divided by the Luminosity of the Sun [source](https://en.wikipedia.org/wiki/Luminosity)                        |
+| Relative Radius                               | Relative Radius is calculated as: Radius divided by the Average Radius of the Sun                                   |
+| Absolute Magnitude                            |  A measure of the luminosity of a celestial object, on an inverse logarithmic astronomical magnitude scale. An object's absolute magnitude is defined to be equal to the apparent magnitude that the object would have if it were viewed from a distance of exactly 10 parsecs (32.6 light-years), without extinction (or dimming) of its light due to absorption by interstellar matter and cosmic dust. By hypothetically placing all objects at a standard reference distance from the observer, their luminosities can be directly compared among each other on a magnitude scale. [source](https://en.wikipedia.org/wiki/Absolute_magnitude)                                                            |
 | Color                                         | General Color of Spectrum                                                     |
-| Spectral Class                                | O,B,A,F,G,K,M / SMASS - https://en.wikipedia.org/wiki/Asteroid_spectral_types |
+| Spectral Class                                | O,B,A,F,G,K,M [source](https://skyandtelescope.org/observing/stellar-spectral-types-03302016/)  |
 
 
 #### Kelvin scale 
@@ -24,8 +24,6 @@
 
  On the Kelvin scale, pure water freezes at 273.15 K, and it boils at 373.15 K.
  [source](https://en.wikipedia.org/wiki/Kelvin)
-
-
 
 
 | Spectral Class                                | Spectral Features                                                             |
@@ -43,11 +41,9 @@
 
 MATH:
 
-    Lo = 3.828 x 10^26 Watts
-    (Avg Luminosity of Sun)
+    1 Solar Luminosity = 3.828 x 10^26 Watts [Luminosity of the Sun]
 
-    Ro = 6.9551 x 10^8 m
-    (Avg Radius of Sun)
+    1 Solar Radius = 6.9551 x 10^8m [Radius of the Sun]
 
 ### Feature Engineering
 | Feature Name                | Description                                                                                 |
