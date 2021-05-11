@@ -1,8 +1,9 @@
 ![star-header](./visuals/stars_header.png)
 
+# Executive Summary
+
 ## Background
 
-### j
 
 ## Data Dictionary
  
