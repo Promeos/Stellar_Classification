@@ -2,7 +2,7 @@
 
 ## Background
 
-### 
+### j
 
 ## Data Dictionary
  
@@ -19,6 +19,7 @@
 
 #### Kelvin scale 
 |                | From kelvins               | To kelvins                  |
+| :------------- | :------------------------- | :-------------------------- |
 | Celsius        | 	[°C] = [K] − 273.15 	  | [K] = [°C] + 273.15         |
 | Fahrenheit     | 	[°F] = [K] × 9⁄5 − 459.67 |	[K] = ([°F] + 459.67) × 5⁄9 |
 
@@ -26,9 +27,9 @@
  [source](https://en.wikipedia.org/wiki/Kelvin)
 
 
-| Spectral Class                                | Spectral Features                                                             |
-| :-------------------------------------------- | :---------------------------------------------------------------------------- |
-|||
+#### Spectral Class
+
+![spectral-visual](./visuals/spectral_classes.jpg)
 
 | Target Name: __Type__ | Description             |
 | :-------------------- | :---------------------- |
@@ -41,9 +42,9 @@
 
 MATH:
 
-    1 Solar Luminosity = 3.828 x 10^26 Watts [Luminosity of the Sun]
+    1 Solar Luminosity = 3.828 x 10^26 Watts [Average Luminosity of the Sun]
 
-    1 Solar Radius = 6.9551 x 10^8m [Radius of the Sun]
+    1 Solar Radius = 6.9551 x 10^8m [Average Radius of the Sun]
 
 ### Feature Engineering
 | Feature Name                | Description                                                                                 |
