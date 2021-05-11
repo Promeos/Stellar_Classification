@@ -80,13 +80,7 @@ MATH:
 >
 
 **Hypothesis**
-> 
-
-**Hypothesis**
-> 
-
-**Hypothesis**
-> 
+>
 
 ### 4. Model
 
