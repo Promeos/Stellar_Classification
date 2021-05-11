@@ -19,6 +19,17 @@
 | Spectral Class                                | O,B,A,F,G,K,M [source](https://skyandtelescope.org/observing/stellar-spectral-types-03302016/)  |
 
 
+| Target Name: __Type__ | Description             |
+| :-------------------- | :---------------------- |
+| 0                     | Red Dwarf               | 
+| 1                     | Brown Dwarf             | 
+| 2                     | White Dwarf             | 
+| 3                     | Main Sequence           | 
+| 4                     | Super Giants            | 
+| 5                     | Hyper Giants            | 
+
+<details><summary>Click here for a deep dive into the data dictionary</summary>
+ 
 #### Kelvin scale 
 |                | From kelvins               | To kelvins                  |
 | :------------- | :------------------------- | :-------------------------- |
@@ -33,20 +44,14 @@
 
 ![spectral-visual](./visuals/spectral_classes.jpg)
 
-| Target Name: __Type__ | Description             |
-| :-------------------- | :---------------------- |
-| 0                     | Red Dwarf               | 
-| 1                     | Brown Dwarf             | 
-| 2                     | White Dwarf             | 
-| 3                     | Main Sequence           | 
-| 4                     | Super Giants            | 
-| 5                     | Hyper Giants            | 
 
 MATH:
 
     1 Solar Luminosity = 3.828 x 10^26 Watts [Average Luminosity of the Sun]
 
     1 Solar Radius = 6.9551 x 10^8m [Average Radius of the Sun]
+
+</details>
 
 ### Feature Engineering
 | Feature Name                | Description                                                                                 |
