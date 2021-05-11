@@ -1,6 +1,7 @@
 ![star-header](./visuals/stars_header.png)
 
-# Executive Summary
+![executive-summary](./visuals/executive_summary.png)
+
 
 ## Background
 
