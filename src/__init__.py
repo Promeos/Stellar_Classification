@@ -1,0 +1,1 @@
+from .acquire import get_star_data
