@@ -7,7 +7,12 @@ def create_datasets(dataset):
     '''
     Splits the stars dataset into train, validate, and test sets.
 
-    Data splits 50-37.5-12.5
+    There are 40 observations for each of the 6 star types
+    Training set contains 50% of the dataset
+    
+    -37.5%-12.5%
+    
+ 
 
     Parameters
     ----------
