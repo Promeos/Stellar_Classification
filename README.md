@@ -4,6 +4,7 @@
 
 
 ## Background
+https://www.eso.org/public/usa/news/eso1615/
 
 
 ## Data Dictionary
@@ -12,21 +13,20 @@
 | Feature Name                                  | Description                                                                   |
 | :-------------------------------------------- | :---------------------------------------------------------------------------- |
 | Temperature                                   | Temperature in Kelvin                                                         |
-| Relative Luminosity                           | The amount of light emitted by an object in a unit of time. Relative Luminosity is calculated as: Luminosity divided by the Luminosity of the Sun [source](https://en.wikipedia.org/wiki/Luminosity)                        |
-| Relative Radius                               | Relative Radius is calculated as: Radius divided by the Average Radius of the Sun                                   |
-| Absolute Magnitude                            |  A measure of the luminosity of a celestial object, on an inverse logarithmic astronomical magnitude scale. An object's absolute magnitude is defined to be equal to the apparent magnitude that the object would have if it were viewed from a distance of exactly 10 parsecs (32.6 light-years), without extinction (or dimming) of its light due to absorption by interstellar matter and cosmic dust. By hypothetically placing all objects at a standard reference distance from the observer, their luminosities can be directly compared among each other on a magnitude scale. [source](https://en.wikipedia.org/wiki/Absolute_magnitude)                                                            |
-| Color                                         | General Color of Spectrum                                                     |
-| Spectral Class                                | O,B,A,F,G,K,M [source](https://skyandtelescope.org/observing/stellar-spectral-types-03302016/)  |
+| Relative Luminosity                           | Amount of light emitted by an object in a unit of time. <br>`Relative Luminosity = Luminosity / Luminosity of the Sun` <br> [luminosity-wiki](https://en.wikipedia.org/wiki/Luminosity)|
+| Relative Radius                               | Radius of a star <br>`Relative Radius = Radius / Radius of the Sun`                                   |
+| Absolute Magnitude                            | Luminosity of a celestial object, on an _inverse logarithmic astronomical magnitude scale_. <br> <br> The absolute magnitude of a star is equal to the apparent magnitude that the object would have if it were viewed from a distance of exactly 10 parsecs (32.6 light-years), without extinction of its light due to absorption by interstellar matter and cosmic dust. By hypothetically placing all objects at a standard reference distance from the observer, _their luminosities can be directly compared among each other on a magnitude scale_. <br> [absolute-magnitude-wiki](https://en.wikipedia.org/wiki/Absolute_magnitude)                                                            |
+| Color                                         | Red, Orange Red, Orange, Pale Yellow Orange, Yellow White, White, Blue White, Blue                                                    |
+| Spectral Class                                | O,B,A,F,G,K,M <br> [spectral-wiki](https://en.wikipedia.org/wiki/Stellar_classification)  |
 
-
-| Target Name: __Type__ | Description             |
+| Target Name           | Description             |
 | :-------------------- | :---------------------- |
-| 0                     | Red Dwarf               | 
-| 1                     | Brown Dwarf             | 
-| 2                     | White Dwarf             | 
-| 3                     | Main Sequence           | 
-| 4                     | Super Giants            | 
-| 5                     | Hyper Giants            | 
+| 0 : Red Dwarf         |  Smallest, longest burning (life), lowest temperature star <br>[red-dwarf](https://www.space.com/23772-red-dwarf-stars.html)                       | 
+| 1 : Brown Dwarf       | Star that cannot sustain nuclear fusion in their cores. Considered a transitional object between a star and a planet. <br> [brown-dwarf](https://cdn.mos.cms.futurecdn.net/K4FXX56wkmoU8Urex2KuNV-970-80.jpg.webp)| 
+| 2 : White Dwarf       | Star that runs out of hydrogen and helium and collapses inward on itself. White dwarfs are incredibly dense. "According to NASA, the gravity on the surface of a white dwarf is 350,000 times that of gravity on Earth. That means a 150-pound (68-kilogram) person on Earth would weigh 50 million pounds (22.7 million kg) on the surface of a white dwarf." <br> [white-dwarf](https://www.space.com/23756-white-dwarf-stars.htm) | 
+| 3 : Main Sequence     |            | 
+| 4 : Super Giants      |            | 
+| 5 : Hyper Giants      |            | 
 
 <details><summary>Click here for a deep dive into the data dictionary</summary>
  
@@ -54,9 +54,16 @@ MATH:
 </details>
 
 ### Feature Engineering
-| Feature Name                | Description                                                                                 |
-|-----------------------------|---------------------------------------------------------------------------------------------|
-|||
+| Feature Name                   | Description                                                                                 |
+|:------------------------------ |:------------------------------------------------------------------------------------------- |
+| scaled_temperature             |                                                                                             |
+| scaled_luminosity              |                                                                                             |
+| scaled_radius                  |                                                                                             |
+| scaled_absolute_mangnitude     |                                                                                             |
+| quantiled_temperature          |                                                                                             |
+| quantiled_luminosity           |                                                                                             |
+| quantiled_radius               |                                                                                             |
+| quantiled_absolute_mangnitude  |                                                                                             |
 
 
 ## Initial Thoughts
@@ -67,7 +74,6 @@ MATH:
 
 
 ### 2. Prepare
-**Missing Values**
 
 **Feature Engineering**
 
@@ -97,10 +103,6 @@ MATH:
 ### 5. Conclusion
 
 #### Key Findings
-- 
-
-#### What was the best model?
-
 
 ## How to Reproduce
 All files are reproducible and available for download and use.
