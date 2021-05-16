@@ -14,15 +14,11 @@ MARKERS = ['*','X','P','h','p','D']
 MARKER_COLORS = ['blue', 'lightblue', 'gold', 'whitesmoke', 'saddlebrown', 'red']
 
 ## Boxplot Variables
-BOXPLOT_FEATURES = ['temperature', 'luminosity', 'radius', 'absolute_magnitude', 'scaled_temperature',
-                     'scaled_luminosity', 'scaled_radius', 'scaled_absolute_magnitude',
-                     'quantiled_temperature', 'quantiled_luminosity', 'quantiled_radius',
-                     'quantiled_absolute_magnitude']
+BOXPLOT_FEATURES = [ 'scaled_temperature', 'scaled_luminosity', 'scaled_radius', 'scaled_absolute_magnitude',
+                     'quantiled_temperature', 'quantiled_luminosity', 'quantiled_radius', 'quantiled_absolute_magnitude']
 
-TITLED_FEATURES = ['Temperature', 'Luminosity', 'Radius', 'Absolute Magnitude', 'Scaled Temperature',
-                   'Scaled Luminosity', 'Scaled Radius', 'Scaled Absolute Magnitude',
-                   'Quantiled Temperature', 'Quantiled Luminosity', 'Quantiled Radius',
-                   'Quantiled Absolute Magnitude']
+TITLED_FEATURES = ['Scaled Temperature', 'Scaled Luminosity', 'Scaled Radius', 'Scaled Absolute Magnitude',
+                   'Quantiled Temperature', 'Quantiled Luminosity', 'Quantiled Radius', 'Quantiled Absolute Magnitude']
 
 ## Crosstab Variables
 STAR_NAMES_SORTED = ['Red Dwarf', 'Brown Dwarf', 'White Dwarf',
@@ -88,7 +84,7 @@ def scaled_pairplot(train):
 
     pairs1.map_lower(sns.kdeplot, levels=2, color=".2")
     pairs1.fig.suptitle("Scaled Features and Star Type",
-                        fontsize=36)
+                        fontsize=30)
     plt.tight_layout()
 
     plt.show()
@@ -110,7 +106,7 @@ def quantiled_pairplot(train):
                           corner=True)
 
     pairs2.fig.suptitle("Quantiled Features and Star Type",
-                        fontsize=24)
+                        fontsize=20)
     plt.tight_layout()
     plt.show()
 
@@ -150,7 +146,6 @@ def three_d_scatter(train):
     plt.legend(STAR_NAMES)
 
     plt.show()
-
 
 
 def two_d_scatter(train):
@@ -203,7 +198,7 @@ def boxplots(train):
     sns.set_context('talk')
 
     # Create the plotting area with 12 subplots split into 6 rows x 2 columns
-    fig, axs = plt.subplots(6, 2, figsize=(24, 36))
+    fig, axs = plt.subplots(4, 2, figsize=(24, 28))
 
     # Ravel the axis into a list to interate over
     axs = axs.ravel()
@@ -226,7 +221,7 @@ def boxplots(train):
         # Plot formatting
         plt.tight_layout()
 
-    plt.subplots_adjust(hspace=.5)
+    plt.subplots_adjust(hspace=.25)
     plt.show()
 
 
@@ -285,6 +280,7 @@ def stars_by_spectral_class(train):
 
     return data
 
+
 def color_by_spectral_class(train):
     '''
     Create a crosstab heatmap of `color` and `spectral_class`
@@ -316,7 +312,7 @@ def color_by_spectral_class(train):
 def parallel_plot(train):
     '''
     Create a Parallel Category plot for `star_type_name` and `spectral_class` with
-    `scaled_absolute_magnitude` as the continuous feature
+    `scaled_absolute_magnitude` as the continuous feature.
     '''
     fig = parallel_cats(train,
                         dimensions=['star_type_name', 'spectral_class'],
