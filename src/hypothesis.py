@@ -12,12 +12,12 @@ ALPHA = 1 - CONFIDENCE_INTERVAL
 
 def evaluate_p_value(p):
     '''
-
+    Determine if the p-value is less than alpha.
     '''
     global ALPHA
 
     if p < ALPHA:
-        print(f"{p:.03f} < {ALPHA}")
+        print(f"{p:.03f} < {ALPHA:.2f}")
         print("Reject the null hypothesis")
     else:
         print("Fail to reject the null hypothesis")
@@ -25,7 +25,7 @@ def evaluate_p_value(p):
 
 def ttest_datasets(train, col='quantiled_radius'):
     '''
-
+    Create Series of Data for each star type.
     '''
     hyper = train[train.star_type_name == 'Hyper Giants'][col]
     super_ = train[train.star_type_name == 'Super Giants'][col]
@@ -55,7 +55,5 @@ def ttest_2sample(train):
     hyper, super_, sequence, white, brown, red = ttest_datasets(train)
 
     _, p = ttest_ind(hyper, white)
-    
-    _, p = f_oneway(super_, sequence, brown, red)
 
-    evaluate_p_value
+    evaluate_p_value()
