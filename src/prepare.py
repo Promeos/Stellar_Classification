@@ -38,7 +38,7 @@ def format_column_names(dataset):
     # Lowercase the column names
     dataset.columns = [column.lower() for column in dataset.columns]
 
-    # Give explicit names to these columns
+    # Rename columns with more descriptive names
     dataset.rename(columns={'l':'luminosity',
                             'r':'radius',
                             'a_m':'absolute_magnitude',

@@ -35,25 +35,3 @@ def ttest_datasets(train, col='quantiled_radius'):
     red = train[train.star_type_name == 'Red Dwarf'][col]
 
     return hyper, super_, sequence, white,  brown, red
-
-
-def ANOVA(train):
-    '''
-    Performs an ANOVA test on the radius of Super Giants, Main Sequence, Brown Stars, and Red Stars.
-    '''
-    _, super_, sequence, _, brown, red = ttest_datasets(train)
-
-    _, p = f_oneway(super_, sequence, brown, red)
-
-    evaluate_p_value(p)
-
-
-def ttest_2sample(train):
-    '''
-    Performs an ANOVA test on the radius of Super Giants, Main Sequence, Brown Stars, and Red Stars.
-    '''
-    hyper, super_, sequence, white, brown, red = ttest_datasets(train)
-
-    _, p = ttest_ind(hyper, white)
-
-    evaluate_p_value()
