@@ -72,24 +72,18 @@ def arrange_columns(train, validate, test):
     as the last columns.
     '''
     # Variable to store ordered column names
-    arranged_cols = ['temperature',
-    'luminosity',
-    'radius',
-    'absolute_magnitude',
-    'color',
-    'spectral_class',
-    'spectral_class_num',
-    'color_num',
-    'scaled_temperature',
-    'scaled_luminosity',
-    'scaled_radius',
-    'scaled_absolute_magnitude',
-    'quantiled_temperature',
-    'quantiled_luminosity',
-    'quantiled_radius',
-    'quantiled_absolute_magnitude',
-    'star_type_name',
-    'star_type']
+    arranged_cols = ['color',
+                     'spectral_class',
+                     'scaled_temperature',
+                     'scaled_luminosity',
+                     'scaled_radius',
+                     'scaled_absolute_magnitude',
+                     'quantiled_temperature',
+                     'quantiled_luminosity',
+                     'quantiled_radius',
+                     'quantiled_absolute_magnitude',
+                     'star_type_name',
+                     'star_type']
     
     # Reorder the columns in the train, validate, and test sets.
     train = train[arranged_cols]

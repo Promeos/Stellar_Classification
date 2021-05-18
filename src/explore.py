@@ -14,11 +14,11 @@ MARKERS = ['*','X','P','h','p','D']
 MARKER_COLORS = ['blue', 'lightblue', 'gold', 'whitesmoke', 'saddlebrown', 'red']
 
 ## Boxplot Variables
-BOXPLOT_FEATURES = [ 'scaled_temperature', 'scaled_luminosity', 'scaled_radius', 'scaled_absolute_magnitude',
-                     'quantiled_temperature', 'quantiled_luminosity', 'quantiled_radius', 'quantiled_absolute_magnitude']
+VIOLINPLOT_FEATURES = ['scaled_temperature', 'quantiled_temperature', 'scaled_luminosity', 'quantiled_luminosity',
+                     'scaled_radius', 'quantiled_radius', 'scaled_absolute_magnitude', 'quantiled_absolute_magnitude']
 
-TITLED_FEATURES = ['Scaled Temperature', 'Scaled Luminosity', 'Scaled Radius', 'Scaled Absolute Magnitude',
-                   'Quantiled Temperature', 'Quantiled Luminosity', 'Quantiled Radius', 'Quantiled Absolute Magnitude']
+TITLED_FEATURES = ['Scaled Temperature', 'Quantiled Temperature', 'Scaled Luminosity', 'Quantiled Luminosity',
+                   'Scaled Radius', 'Quantiled Radius', 'Scaled Absolute Magnitude', 'Quantiled Absolute Magnitude']
 
 ## Crosstab Variables
 STAR_NAMES_SORTED = ['Red Dwarf', 'Brown Dwarf', 'White Dwarf',
@@ -38,17 +38,17 @@ def pearson_correlations(train):
     Create a pearson correlation heatmap with correlated values less than .5 removed and 
     greater than -.5 removed.
     '''
-    # Calculate the correlations between the numeric features and remove the original columns
-    correlations = train.corr().iloc[4:, 4:]
+    # Calculate the correlations between the numeric features
+    correlations = train.corr()
     filtered_correlations = correlations[((correlations < -0.5)|(correlations > 0.5))]
 
     # Create a boolean array to use as a mask to remove the upper corner from the heatmap.
     mask = np.zeros_like(correlations)
     mask[np.triu_indices_from(mask)] = True
-
+    sns.set_context('poster')
     # Set the context of the heatmap with a white background
     with sns.axes_style("white"):
-        sns.set_context('talk')
+        sns.set_context('poster')
         f, ax = plt.subplots(figsize=(20, 16))
 
         ax = sns.heatmap(filtered_correlations,
@@ -69,22 +69,21 @@ def scaled_pairplot(train):
     Create a pairplot using features scaled with the MinMaxScaler. A KDE overlay is added to the
     pairplot to show overlapping groups and distinct groups.
     '''
+    plt.style.use('bmh')
     sns.set_context('notebook')
-
     pairs1 = sns.pairplot(data=train,
-                          hue='star_type_name',
-                          vars=['spectral_class_num',
-                                'color_num',
-                                'scaled_temperature',
+                        hue='star_type_name',
+                        hue_order=['Hyper Giants', 'Super Giants', 'Main Sequence', 'White Dwarf', 'Brown Dwarf', 'Red Dwarf'],
+                        vars=['scaled_temperature',
                                 'scaled_luminosity',
                                 'scaled_radius',
                                 'scaled_absolute_magnitude'],
-                          palette='Set1',
-                          corner=True)
+                        palette='Set1',
+                        corner=True)
 
     pairs1.map_lower(sns.kdeplot, levels=2, color=".2")
     pairs1.fig.suptitle("Scaled Features and Star Type",
-                        fontsize=30)
+                        fontsize=20)
     plt.tight_layout()
 
     plt.show()
@@ -94,18 +93,45 @@ def quantiled_pairplot(train):
     '''
     Create a pairplot using quantile scaled features.
     '''
+    plt.style.use('bmh')
     sns.set_context('notebook')
-
     pairs2 = sns.pairplot(data=train,
-                          hue='star_type_name',
-                          vars=['quantiled_temperature',
+                        hue='star_type_name',
+                        hue_order=['Hyper Giants', 'Super Giants', 'Main Sequence', 'White Dwarf', 'Brown Dwarf', 'Red Dwarf'],
+                        vars=['quantiled_temperature',
                                 'quantiled_luminosity',
                                 'quantiled_radius',
                                 'quantiled_absolute_magnitude'],
-                          palette='Set1',
-                          corner=True)
+                        palette='Set1',
+                        corner=True)
 
     pairs2.fig.suptitle("Quantiled Features and Star Type",
+                        fontsize=20)
+    plt.tight_layout()
+    plt.show()
+
+
+def scaled_quantiled_pairplot(train):
+    '''
+    Create a pairplot using quantile features and scaled features.
+    '''
+    plt.style.use('bmh')
+    sns.set_context('notebook')
+    pairs3 = sns.pairplot(data=train,
+                        hue='star_type_name',
+                        hue_order=['Hyper Giants', 'Super Giants', 'Main Sequence', 'White Dwarf', 'Brown Dwarf', 'Red Dwarf'],
+                        x_vars=['quantiled_temperature',
+                                'quantiled_luminosity',
+                                'quantiled_radius',
+                                'quantiled_absolute_magnitude'],
+                        y_vars=['scaled_temperature',
+                                'scaled_luminosity',
+                                'scaled_radius',
+                                'scaled_absolute_magnitude'],
+                        palette='Set1',
+                        corner=True)
+
+    pairs3.fig.suptitle("Scaled Features and Quantiled Features",
                         fontsize=20)
     plt.tight_layout()
     plt.show()
@@ -120,6 +146,7 @@ def three_d_scatter(train):
     global STAR_NAMES, MARKERS, MARKER_COLORS
 
     # Create the 3-D canvas
+    plt.style.use('default')
     sns.set_context('talk')
     fig = plt.figure(figsize=(12,12))
     ax = fig.add_subplot(projection='3d')
@@ -129,7 +156,7 @@ def three_d_scatter(train):
         data = train.loc[train['star_type_name'] == star]
         
         ax.scatter(xs=data["scaled_absolute_magnitude"],
-                   ys=data["quantiled_luminosity"],
+                   ys=data["quantiled_temperature"],
                    zs=data["quantiled_radius"],
                    c=color,
                    s=125,
@@ -140,7 +167,7 @@ def three_d_scatter(train):
     # Label Axis
     ax.set(title='Brightness and Size Distinguish a Star')
     ax.set_xlabel('Absolute Magnitude (Scaled)', labelpad=10)
-    ax.set_ylabel('Luminosity (Quantiled)', labelpad=10)
+    ax.set_ylabel('Temperature (Quantiled)', labelpad=10)
     ax.set_zlabel('Radius (Quantiled)', labelpad=10)
 
     plt.legend(STAR_NAMES)
@@ -156,11 +183,11 @@ def two_d_scatter(train):
     global STAR_NAMES, MARKERS, MARKER_COLORS
 
     # Create the 3-D canvas
-    fig = plt.figure(figsize=(8,8))
+    fig = plt.figure(figsize=(7,7))
     ax = fig.add_subplot()
 
     # Visualize each star type with its assigned marker and color
-    with sns.axes_style("white"):
+    with sns.axes_style("dark"):
         sns.set_context('talk')
         for star, marker, color in zip(STAR_NAMES, MARKERS, MARKER_COLORS):
             data = train.loc[train['star_type_name'] == star]
@@ -182,46 +209,45 @@ def two_d_scatter(train):
 
         plt.legend(STAR_NAMES,
                    loc='best',
-                   fancybox=True,
-                   shadow=True)
+                   fancybox=True)
 
         plt.tight_layout()
         plt.show()
 
 
-def boxplots(train):
+def violinplots(train):
     '''
-    Create boxplots for each feature across each star.
+    Create violinplots for each feature across each star.
     '''
     # Create a list of numeric columns to visualize
-    global BOXPLOT_FEATURES, TITLED_FEATURES, STAR_NAMES
-    sns.set_context('talk')
+    global VIOLINPLOT_FEATURES, TITLED_FEATURES, STAR_NAMES
 
     # Create the plotting area with 12 subplots split into 6 rows x 2 columns
-    fig, axs = plt.subplots(4, 2, figsize=(24, 28))
+    fig, axs = plt.subplots(4, 2, figsize=(18, 24))
 
     # Ravel the axis into a list to interate over
     axs = axs.ravel()
 
     with sns.axes_style("white"):
+        sns.set_context('poster')
         plt.style.use('tableau-colorblind10')
 
         # Create a boxplot chart for each feature.
-        for i, (col_name, fmt_col_name) in enumerate(zip(BOXPLOT_FEATURES, TITLED_FEATURES)):
-            sns.boxplot(ax=axs[i],
-                        x=train['star_type_name'],
-                        y=train[col_name],
-                        whis=3,
-                        order=STAR_NAMES)
+        for i, (col_name, fmt_col_name) in enumerate(zip(VIOLINPLOT_FEATURES, TITLED_FEATURES)):
+            sns.violinplot(ax=axs[i],
+                           y=train['star_type_name'],
+                           x=train[col_name],
+                           whis=3,
+                           order=STAR_NAMES)
 
             # Label Axis
-            axs[i].set(title=f'Distribution of {fmt_col_name}',
-                       xlabel='',
-                       ylabel=fmt_col_name)
-        # Plot formatting
-        plt.tight_layout()
+            axs[i].set(ylabel='',
+                       xlabel='')
+            axs[i].set_title(label=f'Distribution of {fmt_col_name}', fontsize=18)
 
-    plt.subplots_adjust(hspace=.25)
+        # Plot formatting
+
+    plt.subplots_adjust(hspace=.5, wspace=.4)
     plt.show()
 
 
@@ -234,14 +260,15 @@ def stars_by_color(train):
     star_color_ctb = pd.crosstab(train['star_type_name'], train['color'])
     data = star_color_ctb.loc[STAR_NAMES_SORTED, COLORS_SORTED]
 
-    plt.figure(figsize=(10, 8))
+    sns.set_context('notebook')
+    plt.figure(figsize=(6, 4))
 
     sns.heatmap(data,
                 cmap='Greens',
                 annot=True,
                 cbar_kws=CBAR_FORMAT)
 
-    plt.title('Count of Stars by Type and Color', fontsize=22)
+    plt.title('Star Type is Dependent on Color', fontsize=14)
     plt.xlabel('')
     plt.ylabel('')
 
@@ -265,14 +292,14 @@ def stars_by_spectral_class(train):
     star_spectral_class_ctb = pd.crosstab(train['star_type_name'], train['spectral_class'])
     data = star_spectral_class_ctb.loc[STAR_NAMES_SORTED, SPECTRAL_CLASS_SORTED]
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(6, 4))
 
     sns.heatmap(data,
                 cmap='Greens',
                 annot=True,
                 cbar_kws=CBAR_FORMAT)
 
-    plt.title('Count of Stars by Type and Spectral Class', fontsize=18)
+    plt.title('Star Type is Dependent on Spectral Class', fontsize=12)
     plt.xlabel('')
     plt.ylabel('')
 
@@ -290,13 +317,13 @@ def color_by_spectral_class(train):
     color_spectral_class_ctb = pd.crosstab(train['color'], train['spectral_class'])
     data = color_spectral_class_ctb.loc[COLORS_SORTED, SPECTRAL_CLASS_SORTED]
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(6, 4))
 
     sns.heatmap(data,
                 cmap='Greens',
                 annot=True)
 
-    plt.title('Count of Stars by Color and Spectral Class', fontsize=18)
+    plt.title('Color is Dependent on Spectral Class', fontsize=12)
     plt.xlabel('')
     plt.ylabel('')
 

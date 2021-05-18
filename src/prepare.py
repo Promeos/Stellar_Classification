@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+from pandas.api.types import CategoricalDtype
+
 
 def prep_star_data(dataset):
     '''
@@ -16,7 +18,7 @@ def prep_star_data(dataset):
     dataset = format_column_names(dataset)
     dataset = star_names(dataset)
     dataset = normalize_colors(dataset)
-    dataset = categorize_factorize_features(dataset)
+    dataset = categorize_features(dataset)
     dataset = arrange_columns(dataset)
 
     return dataset
@@ -42,7 +44,7 @@ def format_column_names(dataset):
     dataset.rename(columns={'l':'luminosity',
                             'r':'radius',
                             'a_m':'absolute_magnitude',
-                            'type': 'star_type'},
+                            'type':'star_type'},
                    inplace=True)
 
     return dataset
@@ -71,7 +73,7 @@ def star_names(dataset, col='star_type'):
                      4: 'Super Giants',
                      5: 'Hyper Giants'}
 
-    dataset['star_type_name'] = dataset[col].map(star_type_map)
+    dataset['star_type_name'] = dataset[[col]].applymap(star_type_map.get)
 
     return dataset
 
@@ -105,7 +107,7 @@ def normalize_colors(dataset, col='color'):
     return dataset
 
 
-def categorize_factorize_features(dataset, cols=['spectral_class', 'color']):
+def categorize_features(dataset, cols=['spectral_class', 'color']):
     '''
     Casts object columns to Categorical and creates numeric encodings of each
     Category.
@@ -120,12 +122,12 @@ def categorize_factorize_features(dataset, cols=['spectral_class', 'color']):
     -------
     dataset
     '''
-    # Create categorized versions of the column names.
-    dataset[cols] = dataset[cols].apply(pd.Categorical)
+    # Create an Ordinal Category Type for Spectral Class
+    spectral_cat_type = CategoricalDtype(categories=list('MKGFABO'), ordered=True)
 
-    # Create a factorized version of each object column.
-    for col in cols:
-        dataset[f'{col}_num'], _ = pd.factorize(dataset[col])
+    # Create categorized versions of the column names.
+    dataset[cols[0]] = dataset[cols[0]].astype(spectral_cat_type)
+    dataset[cols[1]] = dataset[cols[1]].astype('category')
 
     return dataset
 
@@ -143,9 +145,14 @@ def arrange_columns(dataset):
     -------
     dataset
     '''
-    dataset = dataset[['temperature', 'luminosity', 'radius',
-            'absolute_magnitude', 'color', 'spectral_class',
-            'spectral_class_num', 'color_num', 'star_type_name', 'star_type']]
+    dataset = dataset[['temperature',
+                       'luminosity',
+                       'radius',
+                       'absolute_magnitude',
+                       'color',
+                       'spectral_class',
+                       'star_type_name',
+                       'star_type']]
 
     return dataset
 
