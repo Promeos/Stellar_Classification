@@ -85,9 +85,11 @@ Acquire Takeaways
 - Rearrange columns.
 
 **Feature Engineering**
+- Created scaled columns of `temperature`, `luminosity`, `radius`. and `absolute_magnitude` using a MinMaxScaler.
+- Created quantiled columns of the MinMaxScaled versions of `temperature`, `luminosity`, `radius`. and `absolute_magnitude` using a QuantileTransformer.
 
 **Preprocessing**
-- The data was split using a 50%-37.5%-12.5% method. Stratifying the splits by the target variable `star_type` means that each `star_type` is split 20-15-5, 40 stars for each of the 6 classes.
+- The data was split using a 50%-37.5%-12.5% split, stratified by `star_type`.
 
 ### 3. Explore
 
