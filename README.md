@@ -60,10 +60,10 @@ MATH:
 | scaled_luminosity              | Luminosity scaled using a MinMaxScaler                                                      |
 | scaled_radius                  | Radius scaled using a MinMaxScaler                                                          |
 | scaled_absolute_mangnitude     | Absolute Magniutde scaled using a MinMaxScaler                                              |
-| quantiled_temperature          | MinMaxScaled Temperature scaled using a Quantile Transformer                                |
-| quantiled_luminosity           | MinMaxScaled Luminosity scaled using a Quantile Transformer                                 |
-| quantiled_radius               | MinMaxScaled Radius scaled using a Quantile Transformer                                     |
-| quantiled_absolute_mangnitude  | MinMaxScaled Absolute Magnitude scaled using a Quantile Transformer                         |
+| quantiled_temperature          | MinMaxScaled Temperature scaled using a QuantileTransformer                                 |
+| quantiled_luminosity           | MinMaxScaled Luminosity scaled using a QuantileTransformer                                  |
+| quantiled_radius               | MinMaxScaled Radius scaled using a QuantileTransformer                                      |
+| quantiled_absolute_mangnitude  | MinMaxScaled Absolute Magnitude scaled using a QuantileTransformer                          |
 
 
 ## Project Steps
