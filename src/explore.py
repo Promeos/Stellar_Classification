@@ -209,7 +209,9 @@ def two_d_scatter(train):
 
         plt.legend(STAR_NAMES,
                    loc='best',
-                   fancybox=True)
+                   fancybox=True,
+                   framealpha=.3,
+                   fontsize='small')
 
         plt.tight_layout()
         plt.show()
