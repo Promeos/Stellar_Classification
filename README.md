@@ -87,7 +87,7 @@ Acquire Takeaways
 **Feature Engineering**
 
 **Preprocessing**
-The data was split using a 50%-37.5%-12.5% method. Stratifying the splits by the target variable star_type means that each star_type is split 20-15-5, 40 stars for each star type.
+- The data was split using a 50%-37.5%-12.5% method. Stratifying the splits by the target variable `star_type` means that each `star_type` is split 20-15-5, 40 stars for each of the 6 classes.
 
 ### 3. Explore
 
