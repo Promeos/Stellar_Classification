@@ -66,41 +66,120 @@ MATH:
 | quantiled_absolute_mangnitude  | MinMaxScaled Absolute Magnitude scaled using a Quantile Transformer                         |
 
 
-## Initial Thoughts
-
-
 ## Project Steps
 ### 1. Acquire
+Acquire Takeaways
+- Stars dataset acquired from Kaggle:
+- Created a function called get_star_data() in the src package.
+- Temperature, Luminosity, Radius, and Absolute Magnitude are non-normally distributed.
 
 
 ### 2. Prepare
+- Created a function named prep_star_data() to clean the dataset.
+- Lowercase column names for easier data manipulation.
+- Rename ambiguous column names with descriptive names.
+- Map star_type numeric id's with their actual star name in a column called star_type_name
+- Convert the datatype of the spectral_class, and color to categorical and create coded versions of these columns.
+- Clean and normalize the text in the color column.
+- Drop the unscaled columns: temperature, `
+- Rearrange columns.
 
 **Feature Engineering**
 
 **Preprocessing**
-
+The data was split using a 50%-37.5%-12.5% method. Stratifying the splits by the target variable star_type means that each star_type is split 20-15-5, 40 stars for each star type.
 
 ### 3. Explore
 
 
 #### Hypotheses
-**Hypothesis**
+__Do Super Giants, Main Sequence, Brown Drawfs, and Red Dwarfs have significantly different radii?__
+> 𝐻0: The average `quantiled radius` of each star is equal to the population mean.
 > 
-
-
-**Hypothesis**
+> 𝐻1: The average `quantiled radius` of each star is significantly different than the population mean.
 >
+> Outcome: Reject the null hypothesis
+<br>
 
-**Hypothesis**
+__Is the average radius of each star type significantly different from another?__
+> 𝐻0: The average `quantiled radius` of __Super Giants__ and __Main Sequence__ Stars is equal.
 >
+> 𝐻1: The average `quantiled radius` of __Super Giants__ and __Main Sequence__ Stars is significantly different.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+> 𝐻0: The average `quantiled radius` of __Super Giants__ and __Brown Dwarfs__ is equal.
+>
+> 𝐻1:The average `quantiled radius` of __Super Giants__ and __Brown Dwarfs__ is significantly different.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+> 𝐻0: The average `quantiled radius` of __Super Giants__ and __Red Dwarfs__ is equal.
+>
+> 𝐻1: The average `quantiled radius` of __Super Giants__ and __Red Dwarfs__ is significantly different.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+> 𝐻0: The average `quantiled radius` of __Main Sequence__ and __Brown Dwarfs__ is equal.
+>
+> 𝐻1: The average `quantiled radius` of __Main Sequence__ and __Brown Dwarfs__ is significantly different.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+> 𝐻0: The average `quantiled radius` of __Main Sequence__ and __Red Dwarfs__ is equal.
+>
+> 𝐻1:The average `quantiled radius` of __Main Sequence__ and __Red Dwarfs__ is significantly different.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+> 𝐻0: The average `quantiled radius` of __Brown Dwarfs__ and __Red Dwarfs__ is equal.
+>
+> 𝐻1: The average `quantiled radius` of __Brown Dwarfs__ and __Red Dwarfs__ is significantly different.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+> 𝐻0: The `average quantiled` radius of __Hyper Giants__ and __White Dwarfs__ is equal.
+> 
+> 𝐻1: The `average quantiled` radius of __Hyper Giants__ and __White Dwarfs__ is significantly different.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+__Is a star's type dependent on the spectral class?__
+> 𝐻0: `Star type` is independent of `spectral class`.
+>
+> 𝐻1: `Star type` is dependent on `spectral class`.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+__Is a star's type dependent on its color?__
+> 𝐻0: `Star type` is independent of `color`.
+> 
+> 𝐻1: `Star type` is dependent on `color`.
+>
+> Outcome: Reject the null hypothesis
+<br>
+
+__Is spectral class dependent on color?__
+> 𝐻0: `Star type` is independent of `color`.
+> 
+> 𝐻1: `Star type` is dependent on `color`.
+>
+> Outcome: Reject the null hypothesis
+<br>
 
 ### 4. Model
-
-
-### Final Model
-
+![tree](./visuals/tree.png)
 
 ### 5. Conclusion
+A star can be classified using its `absolute_magnitude` and `radius`.
 
 #### Key Findings
 
