@@ -94,13 +94,13 @@ Acquire Takeaways
 - Stratified by `star_type`
 
 ### 3. Explore
-- Created a heatmap of correlations between features and `star_type`.
-- Created 3 pairplots to visualize the interactions of value between features.
+- Created a heatmap of correlations between continuous features and `star_type`.
+- Created 3 pairplots to visualize the interactions between continuous features.
 - Created a 3D scatterplot of the three most visually separable features.
 - Created a 2D scatterplot of `absolute_magnitude` and `star_type`.
-- Created a violinplot to understand the distribution of features across `star_type`.
+- Created a violinplot to understand the distribution of continuous features across `star_type`.
 - Created 3 crosstab heatmaps to map the interactions between categorical features.
-- Created a parallel plot visualize the `star_type` and `spectral_class` using the measure `absolute_magnitude` for color.
+- Created a parallel plot visualize the `star_type` and `spectral_class` using `absolute_magnitude` to indicate luminosity (brightness).
 
 #### Hypotheses
 __Do Super Giants, Main Sequence, Brown Drawfs, and Red Dwarfs have significantly different radii?__
@@ -161,7 +161,7 @@ __Is the average radius of each star type significantly different from another?_
 > Outcome: Reject the null hypothesis
 <br>
 
-__Is a star's type dependent on the spectral class?__
+__Is a star's type dependent on spectral class?__
 > 𝐻0: `Star type` is independent of `spectral class`.
 >
 > 𝐻1: `Star type` is dependent on `spectral class`.
@@ -169,7 +169,7 @@ __Is a star's type dependent on the spectral class?__
 > Outcome: Reject the null hypothesis
 <br>
 
-__Is a star's type dependent on its color?__
+__Is a star's type dependent on color?__
 > 𝐻0: `Star type` is independent of `color`.
 > 
 > 𝐻1: `Star type` is dependent on `color`.
@@ -204,5 +204,5 @@ __New stars we observe can be classified by knowing their `absolute_magnitude` a
 ## How to Reproduce
 All files are reproducible and available for download and use.
 - [x] Read this README.md
-- [ ] Download the aquire.py, prepare.py, and Final-Report.ipynb files
+- [ ] Clone this repository
 - [ ] Run Final-Report.ipynb
