@@ -68,7 +68,6 @@ MATH:
 
 ## Project Steps
 ### 1. Acquire
-Acquire Takeaways
 - Stars dataset acquired from [Kaggle](https://www.kaggle.com/brsdincer/star-type-classification)
 - Created a function called `get_star_data()` make data acquisition reproducible.
 - Temperature, Luminosity, Radius, and Absolute Magnitude are non-normally distributed.
@@ -197,7 +196,7 @@ __Is spectral class dependent on color?__
 ### 5. Conclusion
 __New stars we observe can be classified by knowing their `absolute_magnitude` and `radius`.__
 
-### 6. Final Thoughts
+### 6. Future Investigations
 - Given the small size of the dataset, I wonder if new stars would impact the prediction capability of the model.
 
 
