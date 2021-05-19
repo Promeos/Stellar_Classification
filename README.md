@@ -69,30 +69,38 @@ MATH:
 ## Project Steps
 ### 1. Acquire
 Acquire Takeaways
-- Stars dataset acquired from Kaggle:
-- Created a function called get_star_data() in the src package.
+- Stars dataset acquired from [Kaggle](https://www.kaggle.com/brsdincer/star-type-classification)
+- Created a function called `get_star_data()` make data acquisition reproducible.
 - Temperature, Luminosity, Radius, and Absolute Magnitude are non-normally distributed.
 
 
 ### 2. Prepare
-- Created a function named prep_star_data() to clean the dataset.
+- Created a function called `prep_star_data()` to clean the dataset.
 - Lowercase column names for easier data manipulation.
 - Rename ambiguous column names with descriptive names.
-- Map star_type numeric id's with their actual star name in a column called star_type_name
-- Convert the datatype of the spectral_class, and color to categorical and create coded versions of these columns.
-- Clean and normalize the text in the color column.
-- Drop the unscaled columns: temperature, `
+- Map `star_type` numeric id's with their actual star name in a column called `star_type_name`.
+- Convert the datatype of the `spectral_class`, and `color` to categorical.
+- Clean and normalize the text in the `color` column.
+- Drop the unscaled columns: `temperature`, `luminosity`, `radius`. and `absolute_magnitude`
 - Rearrange columns.
 
 **Feature Engineering**
 - Created scaled columns of `temperature`, `luminosity`, `radius`. and `absolute_magnitude` using a MinMaxScaler.
 - Created quantiled columns of the MinMaxScaled versions of `temperature`, `luminosity`, `radius`. and `absolute_magnitude` using a QuantileTransformer.
+- Dropped the `luminosity` column from the dataset because `absolute_magnitude` is the measure of a star's luminosity, irregardless of the distance in space.
 
 **Preprocessing**
-- The data was split using a 50%-37.5%-12.5% split, stratified by `star_type`.
+- The data splits: Train 50%, Validate 37.5%, Test 12.5%
+- Stratified by `star_type`
 
 ### 3. Explore
-
+- Created a heatmap of correlations between features and `star_type`.
+- Created 3 pairplots to visualize the interactions of value between features.
+- Created a 3D scatterplot of the three most visually separable features.
+- Created a 2D scatterplot of `absolute_magnitude` and `star_type`.
+- Created a violinplot to understand the distribution of features across `star_type`.
+- Created 3 crosstab heatmaps to map the interactions between categorical features.
+- Created a parallel plot visualize the `star_type` and `spectral_class` using the measure `absolute_magnitude` for color.
 
 #### Hypotheses
 __Do Super Giants, Main Sequence, Brown Drawfs, and Red Dwarfs have significantly different radii?__
@@ -178,12 +186,20 @@ __Is spectral class dependent on color?__
 <br>
 
 ### 4. Model
+- Baseline Model Accuracy is 23%
+- Decision Tree Model Accuracy is 100%
+- The Decision Tree Model outperformed the Baseline by 329%
+
+- The most important features in determining `star_type` is `absolute_magnitude`(scaled) and `radius` (quantiled).
+
 ![tree](./visuals/tree.png)
 
 ### 5. Conclusion
-A star can be classified using its `absolute_magnitude` and `radius`.
+__New stars we observe can be classified by knowing their `absolute_magnitude` and `radius`.__
 
-#### Key Findings
+### 6. Final Thoughts
+- Given the small size of the dataset, I wonder if new stars would impact the prediction capability of the model.
+
 
 ## How to Reproduce
 All files are reproducible and available for download and use.
