@@ -3,6 +3,4 @@ __pycache__
 .DS_Store
 .vscode/
 *.json
-sweeper_routes/
-*.mov
 env.py
