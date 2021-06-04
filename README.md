@@ -1,6 +1,4 @@
-![star-header](./visuals/stars_header.png)
 
-![executive-summary](./visuals/executive_summary.png)
 
 
 ## Background
