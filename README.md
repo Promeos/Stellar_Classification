@@ -1,4 +1,6 @@
+![header](./visuals/header.png)
 
+![executive-summary](./visuals/executive_summary.png)
 
 
 ## Background
