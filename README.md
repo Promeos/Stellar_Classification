@@ -19,7 +19,7 @@ https://www.eso.org/public/usa/news/eso1615/
 | Color                                         | Red, Orange Red, Orange, Pale Yellow Orange, Yellow White, White, Blue White, Blue. "The surface temperature of a star determines the color of light it emits".                                                  |
 | Spectral Class                                | O,B,A,F,G,K,M <br> [spectral-wiki](https://en.wikipedia.org/wiki/Stellar_classification)  |
 
-| Target: `star_type`   | Star Name             | Description             |
+| Target: `star_type`   | Star Class            | Description             |
 | :-------------------- | :-------------------- | :---------------------- |
 | 0                     | Red Dwarf             | Smallest, longest burning (life), lowest temperature star. <br> "A red dwarf, which is half as massive as the sun, can last 80 to 100 billion years, which is far longer than the universe's age of 13.8 billion years. This long lifetime is one reason red dwarfs are considered to be good sources for planets hosting life, because they are stable for such a long time." <br>[red-dwarf](https://www.space.com/23772-red-dwarf-stars.html)                       | 
 | 1                     | Brown Dwarf            | Star that cannot sustain nuclear fusion in their cores. Considered a transitional object between a star and a planet. <br> [brown-dwarf](https://cdn.mos.cms.futurecdn.net/K4FXX56wkmoU8Urex2KuNV-970-80.jpg.webp)| 
