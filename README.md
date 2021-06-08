@@ -98,8 +98,8 @@ MATH:
 - Created a 3D scatterplot of the three most visually separable features.
 - Created a 2D scatterplot of `absolute_magnitude` and `star_type`.
 - Created a violinplot to understand the distribution of continuous features across `star_type`.
-- Created three crosstab heatmaps to map the interactions between categorical features.
-- Created a parallel plot visualize the `star_type` and `spectral_class` using `absolute_magnitude` to indicate luminosity (brightness).
+- Created three crosstab heatmaps to visualize categorical features.
+- Created a parallel plot to visualize `star_type` and `spectral_class` using `absolute_magnitude` to indicate luminosity (brightness).
 
 #### Hypotheses
 __Do Super Giants, Main Sequence, Brown Drawfs, and Red Dwarfs have significantly different radii?__
