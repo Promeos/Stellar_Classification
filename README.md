@@ -2,11 +2,6 @@
 
 ![executive-summary](./visuals/executive_summary.png)
 
-
-## Background
-https://www.eso.org/public/usa/news/eso1615/
-
-
 ## Data Dictionary
  
 **`stars.csv`**
